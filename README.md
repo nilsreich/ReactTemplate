@@ -12,10 +12,10 @@ Dive into a world of cutting-edge development with the React PowerPack, a sleek 
 - Vite-PWA: A plugin for Vite to easily integrate Progressive Web App (PWA) features.
 - SWR: A strategy to fetch data in React, standing for "stale-while-revalidate", providing efficient data fetching.
 
-##Contributing
+## Contributing
 We welcome contributions to this project! Please read our Contributing Guide for details on our code of conduct and the process for submitting pull requests.
 
-##License
+## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 This template is designed to be adaptable and flexible, catering to a wide range of web application development needs. Whether you're building a small project or a large-scale application, this setup aims to provide a solid starting point. Happy coding! 🚀
