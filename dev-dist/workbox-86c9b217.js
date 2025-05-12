@@ -2,8 +2,25 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:core:7.0.0'] && _();
+      self['workbox:core:7.2.0'] && _();
     } catch (e) {}
+
+    /*
+      Copyright 2019 Google LLC
+
+      Use of this source code is governed by an MIT-style
+      license that can be found in the LICENSE file or at
+      https://opensource.org/licenses/MIT.
+    */
+    /**
+     * Claim any currently available clients once the service worker
+     * becomes active. This is normally used in conjunction with `skipWaiting()`.
+     *
+     * @memberof workbox-core
+     */
+    function clientsClaim() {
+      self.addEventListener('activate', () => self.clients.claim());
+    }
 
     /*
       Copyright 2019 Google LLC
@@ -455,7 +472,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:routing:7.0.0'] && _();
+      self['workbox:routing:7.2.0'] && _();
     } catch (e) {}
 
     /*
@@ -1252,7 +1269,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:precaching:7.0.0'] && _();
+      self['workbox:precaching:7.2.0'] && _();
     } catch (e) {}
 
     /*
@@ -1697,7 +1714,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:strategies:7.0.0'] && _();
+      self['workbox:strategies:7.2.0'] && _();
     } catch (e) {}
 
     /*
@@ -1900,8 +1917,8 @@ define(['exports'], (function (exports) { 'use strict';
        * defined on the strategy object.
        *
        * The following plugin lifecycle methods are invoked when using this method:
-       * - cacheKeyWillByUsed()
-       * - cachedResponseWillByUsed()
+       * - cacheKeyWillBeUsed()
+       * - cachedResponseWillBeUsed()
        *
        * @param {Request|string} key The Request or URL to use as the cache key.
        * @return {Promise<Response|undefined>} A matching response, if found.
@@ -1942,7 +1959,7 @@ define(['exports'], (function (exports) { 'use strict';
        * the strategy object.
        *
        * The following plugin lifecycle methods are invoked when using this method:
-       * - cacheKeyWillByUsed()
+       * - cacheKeyWillBeUsed()
        * - cacheWillUpdate()
        * - cacheDidUpdate()
        *
@@ -3366,6 +3383,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     exports.NavigationRoute = NavigationRoute;
     exports.cleanupOutdatedCaches = cleanupOutdatedCaches;
+    exports.clientsClaim = clientsClaim;
     exports.createHandlerBoundToURL = createHandlerBoundToURL;
     exports.precacheAndRoute = precacheAndRoute;
     exports.registerRoute = registerRoute;
